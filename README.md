@@ -4,33 +4,51 @@
 
 AURORA est une plateforme moderne de coordination des interventions de crise internationale, développée avec React pour offrir une interface utilisateur moderne et réactive.
 
-## � Site en ligne
+## 🌐 Versions disponibles
 
-**Accédez à l'application complète sur GitHub Pages:**
+### React (Recommended - En ligne)
+✅ **Accédez à l'application complète sur GitHub Pages:**
 👉 **https://gato2fraises.github.io/Site-Aurora-Risk/**
 
-## �🌍 Vue d'ensemble
+- Application moderne et interactive
+- Fonctionne directement en ligne (GitHub Pages)
+- Carte interactive avec Leaflet
+- Design responsive et animations
+
+### PHP (Local)
+✅ **Version PHP avec serveur backend:**
+📄 **Consultez [PHP-SETUP.md](PHP-SETUP.md) pour les instructions**
+
+- Application serveur-side en PHP
+- Fonctionnalités identiques à React
+- À exécuter localement avec `php -S localhost:8000`
+- Parfait pour le développement backend
+
+## 🌍 Vue d'ensemble
 
 Cette application web permet la gestion et coordination en temps réel des interventions d'urgence à travers le monde, avec une carte interactive mondiale utilisant Leaflet pour visualiser les crises actives.
 
-## 🚀 Architecture
+## 🚀 Technologies disponibles
 
+### React (Version actuelle en ligne)
 - **Frontend**: React 18+ avec Hooks
 - **Carte Interactive**: React Leaflet pour une vraie carte du monde
 - **Styles**: SCSS avec design system cohérent
 - **Build**: Create React App avec optimisations de production
 
-## 📦 Installation
+### PHP (Version locale)
+- **Backend**: PHP pur avec POO
+- **Styles**: CSS intégré avec design system
+- **Features**: Gestion dynamique des interventions
+- **Server**: Apache / PHP natif
 
-### Prérequis
-- Node.js 18+ et npm
-- Git
+## 📦 Installation & Démarrage
 
-### Installation rapide
+### Version React (En ligne)
 ```bash
 # Cloner le projet
-git clone <repository-url>
-cd aurora-risk
+git clone https://github.com/gato2fraises/Site-Aurora-Risk.git
+cd Site-Aurora-Risk
 
 # Installer les dépendances
 cd aurora-react
@@ -41,6 +59,20 @@ npm start
 ```
 
 L'application sera accessible sur [http://localhost:3000](http://localhost:3000).
+
+### Version PHP (Local)
+```bash
+# Cloner le projet
+git clone https://github.com/gato2fraises/Site-Aurora-Risk.git
+cd Site-Aurora-Risk
+
+# Démarrer le serveur PHP natif
+php -S localhost:8000
+```
+
+L'application sera accessible sur [http://localhost:8000](http://localhost:8000).
+
+**Pour plus de détails, consultez [PHP-SETUP.md](PHP-SETUP.md)**
 
 ## 🛠 Scripts disponibles
 
