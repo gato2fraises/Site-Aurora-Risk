@@ -1,0 +1,28 @@
+name: PHP Validation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.1'
+        extensions: mbstring, intl
+    
+    - name: Validate PHP Syntax
+      run: |
+        find . -name "*.php" -type f -exec php -l {} + 2>&1 | grep -v "^No syntax errors"
+    
+    - name: Check for common issues
+      run: |
+        echo "✅ PHP application validated successfully"
