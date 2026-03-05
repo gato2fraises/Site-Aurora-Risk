@@ -21,8 +21,10 @@ jobs:
     
     - name: Validate PHP Syntax
       run: |
-        find . -name "*.php" -type f -exec php -l {} + 2>&1 | grep -v "^No syntax errors"
+        for file in $(find . -name "*.php" -type f); do
+          echo "Checking $file..."
+          php -l "$file" || exit 1
+        done
     
-    - name: Check for common issues
-      run: |
-        echo "✅ PHP application validated successfully"
+    - name: Success
+      run: echo "✅ All PHP files validated successfully"

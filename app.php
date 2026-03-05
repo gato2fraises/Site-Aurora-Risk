@@ -23,8 +23,7 @@ $manager = new InterventionManager();
                 case 'interventions':
                     include 'pages/interventions.php';
                     break;
-                case '
-about':
+                case 'about':
                     include 'pages/about.php';
                     break;
                 case 'contact':
