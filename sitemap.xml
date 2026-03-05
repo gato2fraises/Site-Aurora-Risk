@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://aurora-risk.org/</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aurora-risk.org/en/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aurora-risk.org/"/>
+  </url>
+
+  <!-- Section L'Agence -->
+  <url>
+    <loc>https://aurora-risk.org/pages/about</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aurora-risk.org/en/pages/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aurora-risk.org/pages/about"/>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/agence</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/histoire</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/gouvernance</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/partenaires</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Départements -->
+  <url>
+    <loc>https://aurora-risk.org/pages/departements</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/logistique</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/scientifique</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/securite</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/communication</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Domaines d'intervention -->
+  <url>
+    <loc>https://aurora-risk.org/pages/interventions</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/interventions/seismes</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/interventions/incendies</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/interventions/pandemies</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/interventions/industrielles</loc>
+    <lastmod>2026-02-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/interventions/energetiques</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Actualités -->
+  <url>
+    <loc>https://aurora-risk.org/pages/actualites</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/actualites/communiques</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/actualites/conferences</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/actualites/alertes</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>hourly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Transparence -->
+  <url>
+    <loc>https://aurora-risk.org/pages/transparence</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/transparence/rapports</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/transparence/financement</loc>
+    <lastmod>2026-01-15</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/transparence/performance</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Recrutement -->
+  <url>
+    <loc>https://aurora-risk.org/pages/recrutement</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/recrutement/offres</loc>
+    <lastmod>2026-03-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/recrutement/profils</loc>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/recrutement/processus</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>quarterly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <!-- Contact & Coopération -->
+  <url>
+    <loc>https://aurora-risk.org/pages/contact</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://aurora-risk.org/en/pages/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://aurora-risk.org/pages/contact"/>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/contact/presse</loc>
+    <lastmod>2026-02-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/contact/cooperation</loc>
+    <lastmod>2026-02-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Pages légales -->
+  <url>
+    <loc>https://aurora-risk.org/pages/mentions-legales</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/confidentialite</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/cookies</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/accessibilite</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+
+  <!-- Flux RSS -->
+  <url>
+    <loc>https://aurora-risk.org/pages/rss-feed.xml</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Espace presse -->
+  <url>
+    <loc>https://aurora-risk.org/pages/presse</loc>
+    <lastmod>2026-03-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/presse/dossiers</loc>
+    <lastmod>2026-03-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://aurora-risk.org/pages/presse/kit-media</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
+
+<!-- 
+Sitemap AURORA - Notes techniques:
+
+1. Fréquence de mise à jour:
+   - Générer automatiquement via CMS ou script
+   - Soumettre à Google Search Console et Bing Webmaster
+   - Mettre à jour lors d'ajout/suppression de pages
+
+2. Priorités définies:
+   - 1.0: Page d'accueil
+   - 0.9: Pages principales (crises, actualités)  
+   - 0.8: Sections importantes (départements, contact)
+   - 0.7: Pages secondaires
+   - 0.6: Contenus spécialisés
+   - 0.5: Pages de support
+   - 0.3-0.4: Pages légales
+
+3. Multilingue:
+   - Liens hreflang pour FR/EN
+   - Structure /en/ pour version anglaise
+   - Sitemaps séparés si volumes importants
+
+4. Indexation:
+   - Surveiller via Search Console
+   - Optimiser changefreq selon analyse réelle
+   - Compléter avec sitemap images/news si nécessaire
+
+Dernière génération: 4 mars 2026
+Version: 1.0.0
+-->

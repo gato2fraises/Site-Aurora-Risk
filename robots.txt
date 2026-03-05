@@ -1,0 +1,102 @@
+# robots.txt pour AURORA (aurora-risk.org)
+# Dernière mise à jour: 4 mars 2026
+
+# Règles pour tous les robots
+User-agent: *
+
+# Pages autorisées (par défaut toutes)
+Allow: /
+
+# Pages interdites - Protection des zones sensibles
+Disallow: /admin/
+Disallow: /api/
+Disallow: /config/
+Disallow: /logs/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /backup/
+Disallow: /*.sql$
+Disallow: /*.log$
+Disallow: /*.conf$
+Disallow: /*.ini$
+
+# Fichiers et extensions à exclure
+Disallow: /*?*           # URLs avec paramètres
+Disallow: /*.pdf$        # Documents confidentiels (si nécessaire)
+Disallow: /search?       # Pages de recherche avec paramètres
+
+# Délai entre les requêtes (en secondes) - Politesse
+Crawl-delay: 1
+
+# Robots spécialisés - Configuration personnalisée
+
+# Google Bot - Accès complet
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing Bot - Accès complet  
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Respect des robots sociaux
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Robots d'archivage - Autorisés avec restrictions
+User-agent: ia_archiver
+Allow: /
+Disallow: /documents/confidential/
+
+User-agent: Wayback
+Allow: /
+
+# Robots SEO et outils d'analyse - Autorisés
+User-agent: AhrefsBot
+Allow: /
+
+User-agent: SemrushBot  
+Allow: /
+
+User-agent: MJ12bot
+Allow: /
+
+# Robots de contenu - Restrictions plus strictes
+User-agent: CCBot
+Disallow: /documents/
+Crawl-delay: 10
+
+# Robots malveillants - Interdits
+User-agent: BadBot
+Disallow: /
+
+User-agent: bot*
+Disallow: /
+
+User-agent: *crawler*
+Disallow: /
+
+User-agent: *scraper*
+Disallow: /
+
+User-agent: *spider*
+Disallow: /
+
+# Emplacement du sitemap
+Sitemap: https://aurora-risk.org/sitemap.xml
+
+# Contact pour questions relatives au crawling
+# Contact: webmaster@aurora-risk.org
+
+# Notes importantes:
+# 1. Ce fichier doit être accessible via https://aurora-risk.org/robots.txt
+# 2. Mise à jour requise lors d'ajout de nouvelles sections sensibles
+# 3. Monitoring des logs pour détecter non-respect des règles
+# 4. Coordination avec l'équipe sécurité pour les exclusions
