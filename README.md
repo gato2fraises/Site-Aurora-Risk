@@ -4,7 +4,12 @@
 
 AURORA est une plateforme moderne de coordination des interventions de crise internationale, développée avec React pour offrir une interface utilisateur moderne et réactive.
 
-## 🌍 Vue d'ensemble
+## � Site en ligne
+
+**Accédez à l'application complète sur GitHub Pages:**
+👉 **https://gato2fraises.github.io/Site-Aurora-Risk/**
+
+## �🌍 Vue d'ensemble
 
 Cette application web permet la gestion et coordination en temps réel des interventions d'urgence à travers le monde, avec une carte interactive mondiale utilisant Leaflet pour visualiser les crises actives.
 
