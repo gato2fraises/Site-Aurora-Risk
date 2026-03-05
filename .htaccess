@@ -1,4 +1,7 @@
-# .htaccess - Apache configuration for URL routing
+# .htaccess - Apache configuration for AURORA site
+
+# Define index file priorities
+DirectoryIndex index.php index.html index.htm
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
