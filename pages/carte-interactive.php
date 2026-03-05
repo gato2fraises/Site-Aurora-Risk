@@ -1,96 +1,115 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
-<style>
-    #map {
-        width: 100%;
-        height: 600px;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
-    .leaflet-popup-content {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    
-    .map-legend {
-        background: white;
-        padding: 1rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-bottom: 2rem;
-    }
-    
-    .legend-item {
-        display: flex;
-        align-items: center;
-        gap: 0.75rem;
-        margin-bottom: 0.75rem;
-    }
-    
-    .legend-color {
-        width: 20px;
-        height: 20px;
-        border-radius: 50%;
-        border: 2px solid white;
-    }
-</style>
 
-<div class="container">
-    <h2 class="section-title">Carte Interactive des Interventions</h2>
-    <p class="section-subtitle">Cliquez sur les marqueurs pour plus de détails sur les interventions en cours.</p>
-    
-    <div class="map-legend">
-        <h3 style="color: #1e293b; margin-bottom: 1rem;">Légende</h3>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #dc2626;"></div>
-            <span style="color: #64748b;">Critique</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #f59e0b;"></div>
-            <span style="color: #64748b;">Majeure</span>
-        </div>
-        <div class="legend-item">
-            <div class="legend-color" style="background: #10b981;"></div>
-            <span style="color: #64748b;">Active</span>
-        </div>
-    </div>
-
-    <div id="map"></div>
-
-    <h2 class="section-title" style="margin-top: 3rem;">Détails des Emplacements</h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-        <?php 
-        $locations = [
-            ['name' => 'Gaziantep, Turquie', 'lat' => 37.0662, 'lng' => 37.3833, 'status' => 'critique'],
-            ['name' => 'Méditerranée', 'lat' => 36.0, 'lng' => 13.0, 'status' => 'majeure'],
-            ['name' => 'Région du Sahel', 'lat' => 17.0, 'lng' => 2.0, 'status' => 'majeure'],
-            ['name' => 'Pakistan, Bangladesh', 'lat' => 28.0, 'lng' => 87.0, 'status' => 'majeure'],
-            ['name' => 'Gaza, Palestine', 'lat' => 31.95, 'lng' => 35.23, 'status' => 'critique']
-        ];
+<!-- Interactive Map Section -->
+<div class="section-clean" id="carte-interactive">
+    <div class="container-clean">
+        <h2 class="section-title-clean fade-in">Carte Interactive des Interventions</h2>
+        <p class="section-subtitle-clean fade-in">
+            Visualisez nos interventions actives en temps réel à travers le monde. Cliquez sur les marqueurs pour obtenir plus de détails.
+        </p>
         
-        foreach ($locations as $loc):
-        ?>
-        <div style="padding: 1.5rem; background: #f8fafc; border-radius: 12px; border-left: 4px solid #3b82f6;">
-            <h3 style="color: #1e293b; margin-bottom: 0.75rem;">📍 <?php echo $loc['name']; ?></h3>
-            <p style="color: #64748b; font-size: 0.9rem; margin-bottom: 0.75rem;">
-                Coordonnées: <?php echo number_format($loc['lat'], 2); ?>°, <?php echo number_format($loc['lng'], 2); ?>°
-            </p>
-            <span class="status-badge status-<?php echo $loc['status']; ?>">
-                <?php echo strtoupper($loc['status']); ?>
-            </span>
+        <div class="card-clean fade-in" style="margin-bottom: 2rem;">
+            <h3 style="color: #1e293b; margin-bottom: 1rem; font-size: 1.25rem; text-align: center;">Légende des Statuts</h3>
+            <div style="display: flex; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 18px; height: 18px; background: #dc2626; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
+                    <span style="color: #64748b; font-weight: 500;">Critique</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 18px; height: 18px; background: #f59e0b; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
+                    <span style="color: #64748b; font-weight: 500;">Majeure</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.75rem;">
+                    <div style="width: 18px; height: 18px; background: #10b981; border-radius: 50%; border: 2px solid white; box-shadow: 0 2px 4px rgba(0,0,0,0.2);"></div>
+                    <span style="color: #64748b; font-weight: 500;">Active</span>
+                </div>
+            </div>
         </div>
-        <?php endforeach; ?>
+
+        <div class="card-clean fade-in" style="padding: 0; overflow: hidden;">
+            <div id="map" style="width: 100%; height: 600px;"></div>
+        </div>
+
+        <h3 class="section-title-clean fade-in" style="margin-top: 3rem; font-size: 1.75rem;">Emplacements des Interventions</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 2rem;">
+            <?php 
+            $locations = [
+                ['name' => 'Gaziantep, Turquie', 'lat' => 37.0662, 'lng' => 37.3833, 'status' => 'critique', 'teams' => '45 équipes', 'desc' => 'Séisme magnitude 7.8 - Opérations de sauvetage'],
+                ['name' => 'Méditerranée Centrale', 'lat' => 36.0, 'lng' => 13.0, 'status' => 'majeure', 'teams' => '12 navires', 'desc' => 'Sauvetage en mer - Assistance migrants'],
+                ['name' => 'Région du Sahel', 'lat' => 17.0, 'lng' => 2.0, 'status' => 'majeure', 'teams' => '23 équipes', 'desc' => 'Épidémie de choléra - Vaccination'],
+                ['name' => 'Bangladesh/Pakistan', 'lat' => 28.0, 'lng' => 87.0, 'status' => 'majeure', 'teams' => '31 équipes', 'desc' => 'Inondations catastrophiques'],
+                ['name' => 'Gaza, Palestine', 'lat' => 31.95, 'lng' => 35.23, 'status' => 'critique', 'teams' => '67 équipes', 'desc' => 'Aide humanitaire d\'urgence']
+            ];
+            
+            foreach ($locations as $index => $loc):
+            ?>
+            <div class="card-clean card-hover fade-in" style="animation-delay: <?php echo $index * 0.1; ?>s;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                    <h4 style="color: #1e293b; margin: 0; font-size: 1.1rem;">📍 <?php echo $loc['name']; ?></h4>
+                    <span class="status-badge-clean status-<?php echo $loc['status']; ?>">
+                        <?php echo strtoupper($loc['status']); ?>
+                    </span>
+                </div>
+                
+                <p style="color: #64748b; margin-bottom: 1rem; line-height: 1.5;">
+                    <?php echo $loc['desc']; ?>
+                </p>
+                
+                <div style="background: #f8fafc; padding: 0.75rem; border-radius: 6px; margin-bottom: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="color: #64748b; font-size: 0.9rem;">
+                            🌐 <?php echo number_format($loc['lat'], 2); ?>°, <?php echo number_format($loc['lng'], 2); ?>°
+                        </span>
+                        <span style="color: #2563eb; font-weight: 600; font-size: 0.9rem;">
+                            👥 <?php echo $loc['teams']; ?>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </div>
 
+<style>
+.leaflet-popup-content {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.leaflet-popup-tip {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.leaflet-container {
+    border-radius: 8px;
+}
+</style>
+
 <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 <script>
-// Initialiser la carte
-const map = L.map('map').setView([20, 0], 2);
+// Initialiser la carte avec un style professionnel
+const map = L.map('map', {
+    center: [20, 0],
+    zoom: 2,
+    zoomControl: true,
+    scrollWheelZoom: true,
+    doubleClickZoom: true,
+    boxZoom: true,
+    keyboard: true,
+    dragging: true,
+    touchZoom: true
+});
 
-// Ajouter la couche de tuiles
+// Ajouter la couche de tuiles avec style neutre
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors',
-    maxZoom: 19
+    attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+    minZoom: 2
 }).addTo(map);
 
 // Définir les couleurs pour chaque statut
@@ -100,64 +119,149 @@ const statusColors = {
     'active': '#10b981'
 };
 
-// Ajouter les marqueurs
+const statusLabels = {
+    'critique': 'CRITIQUE',
+    'majeure': 'MAJEURE',
+    'active': 'ACTIVE'
+};
+
+// Données des interventions avec descriptions détaillées
 const interventions = [
     {
         coords: [37.0662, 37.3833],
-        name: 'Tremblement de Terre en Turquie',
+        name: 'Séisme en Turquie',
         status: 'critique',
-        description: 'Coordination d\'une opération de sauvetage internationale à Gaziantep'
+        description: 'Tremblement de terre magnitude 7.8 à Gaziantep',
+        teams: '45 équipes internationales',
+        victims: '50,000+ personnes affectées',
+        coordinator: 'Dr. Elena Vasquez'
     },
     {
         coords: [36.0, 13.0],
-        name: 'Crise Migratoire en Méditerranée',
+        name: 'Crise Migratoire Méditerranée',
         status: 'majeure',
-        description: 'Opération de sauvetage et d\'assistance humanitaire'
+        description: 'Opérations de sauvetage en mer',
+        teams: '12 navires de secours',
+        victims: '15,000+ migrants secourus',
+        coordinator: 'Capt. Marco Rossi'
     },
     {
         coords: [17.0, 2.0],
-        name: 'Épidémie de Choléra',
+        name: 'Épidémie Sahel',
         status: 'majeure',
-        description: 'Campagne de vaccination en Afrique de l\'Ouest'
+        description: 'Épidémie de choléra - Campagne vaccination',
+        teams: '23 équipes médicales',
+        victims: '120,000+ patients traités',
+        coordinator: 'Dr. Aminata Traoré'
     },
     {
         coords: [28.0, 87.0],
-        name: 'Inondations en Asie du Sud',
+        name: 'Inondations Asie du Sud',
         status: 'majeure',
-        description: 'Assistance aux victimes des inondations catastrophiques'
+        description: 'Inondations catastrophiques Pakistan/Bangladesh',
+        teams: '31 équipes de secours',
+        victims: '2M+ personnes déplacées',
+        coordinator: 'Gen. Rajesh Kumar'
     },
     {
         coords: [31.95, 35.23],
-        name: 'Conflit en Proche-Orient',
+        name: 'Conflit Gaza',
         status: 'critique',
-        description: 'Opération humanitaire en zone de conflit'
+        description: 'Assistance humanitaire d\'urgence',
+        teams: '67 équipes sur le terrain',
+        victims: '1.5M+ civils affectés',
+        coordinator: 'Dr. Sarah Mitchell'
     }
 ];
 
-// Ajouter chaque intervention comme marqueur
-interventions.forEach(intervention => {
+// Ajouter chaque intervention comme marqueur avec popup amélioré
+interventions.forEach((intervention, index) => {
     const marker = L.circleMarker(intervention.coords, {
-        radius: 12,
+        radius: 14,
         fillColor: statusColors[intervention.status],
-        color: '#fff',
-        weight: 2,
+        color: '#ffffff',
+        weight: 3,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: 0.85,
+        className: 'intervention-marker'
     }).addTo(map);
 
-    marker.bindPopup(`
-        <div style="font-family: 'Segoe UI', sans-serif;">
-            <strong style="color: #1e293b; font-size: 1.1rem;">${intervention.name}</strong><br>
-            <span style="font-size: 0.9rem; color: #64748b;">${intervention.description}</span><br>
-            <span style="display: inline-block; margin-top: 0.5rem; padding: 0.25rem 0.75rem; background: ${statusColors[intervention.status]}; color: white; border-radius: 12px; font-size: 0.8rem; font-weight: 600;">
-                ${intervention.status.toUpperCase()}
-            </span>
+    // Popup avec design cohérent
+    const popupContent = `
+        <div style="font-family: 'Inter', sans-serif; min-width: 280px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem;">
+                <h4 style="color: #1e293b; margin: 0; font-size: 1.125rem; font-weight: 600;">${intervention.name}</h4>
+                <span style="background: ${statusColors[intervention.status]}; color: white; padding: 0.25rem 0.5rem; border-radius: 12px; font-size: 0.75rem; font-weight: 600;">
+                    ${statusLabels[intervention.status]}
+                </span>
+            </div>
+            
+            <p style="color: #64748b; margin-bottom: 1rem; line-height: 1.5; font-size: 0.9rem;">
+                ${intervention.description}
+            </p>
+            
+            <div style="background: #f8fafc; padding: 0.75rem; border-radius: 6px; margin-bottom: 0.75rem;">
+                <div style="display: grid; gap: 0.5rem; font-size: 0.85rem;">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #64748b;">👥 Équipes:</span>
+                        <span style="color: #2563eb; font-weight: 500;">${intervention.teams}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #64748b;">🏥 Affectés:</span>
+                        <span style="color: #2563eb; font-weight: 500;">${intervention.victims}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="color: #64748b;">👨‍💼 Coordinateur:</span>
+                        <span style="color: #2563eb; font-weight: 500;">${intervention.coordinator}</span>
+                    </div>
+                </div>
+            </div>
         </div>
-    `);
+    `;
+
+    marker.bindPopup(popupContent, {
+        maxWidth: 320,
+        className: 'intervention-popup'
+    });
+
+    // Animation d'apparition
+    setTimeout(() => {
+        marker.setStyle({
+            radius: 12,
+            fillOpacity: 0.9
+        });
+    }, index * 200);
 });
 
-// Ajouter une vue globale au clic sur le siège social
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap contributors'
-}).addTo(map);
+// Améliorer l'interaction avec la carte
+map.on('popupopen', function(e) {
+    const popup = e.popup;
+    const marker = e.popup._source;
+    marker.setStyle({
+        radius: 16,
+        weight: 4
+    });
+});
+
+map.on('popupclose', function(e) {
+    const marker = e.popup._source;
+    marker.setStyle({
+        radius: 14,
+        weight: 3
+    });
+});
+
+// Animation observer pour la carte
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(el => {
+    el.style.animationPlayState = 'paused';
+    observer.observe(el);
+});
 </script>
